@@ -1,0 +1,27 @@
+Part I
+
+bzero()
+strcat()
+isalpha()
+isdigit()
+isalnum()
+isascii()
+isprint()
+toupper()
+tolower()
+puts()
+
+Part II
+
+strlen()
+memset()
+memcpy()
+strdup()
+
+Part III
+
+cat()
+
+BONUS
+
+?
