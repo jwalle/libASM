@@ -5,59 +5,42 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/06/02 20:49:05 by jwalle            #+#    #+#              #
-#    Updated: 2015/06/02 22:09:25 by jwalle           ###   ########.fr        #
+#    Created: 2015/06/02 21:45:17 by jwalle            #+#    #+#              #
+#    Updated: 2015/06/02 22:46:37 by jwalle           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libfts.a
+NAME = test
 
-SRC = ft_isascii.s \
-	  ft_isalpha.s \
-	  ft_isalnum.s \
-	  ft_isprint.s \
-	  ft_isdigit.s \
-	  ft_bzero.s
+SRC = main.c
 
-CC = ~/.brew/Cellar/nasm/2.11.08/bin/nasm
+OBJ = main.o
 
-FLAG = -f macho64 -g
+INC = -I./
+LINK = -L./ -lfts
 
-OBJ_DIR = objs
+VERS = -macosx_version_min 10.8 -lSystem
 
-#LINK = -macosx_version_min 10.8 -lSystem #
+FLAG = -Wall -Werror -Wextra
+
+CC = /usr/bin/gcc
 
 RM = /bin/rm -f
-
-S = $(addprefix , $(SRC:.s=.s~))
-
-OBJ = $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.s=.o)))
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
-
-$(OBJ_DIR)/%.o:%.s
-	$(CC) $(FLAG) $< -o $@
+	make -C ../
+	cp -f ../libfts.a .
+	$(CC) -o $(NAME) main.c $(LINK) $(INC)
 
 clean :
 	$(RM) $(OBJ)
-	$(RM) $(S)
-	$(RM) Makefile~
 
 fclean : clean
+	$(RM) libfts.a
 	$(RM) $(NAME)
 
 re : fclean all
 
-$(OBJ): | $(OBJ_DIR)
-
-$(OBJ_DIR):
-	mkdir $(OBJ_DIR)
-
-.PHONY: all clean fclean re
-
-.SILENT: fclean
-
+.PHONY: re all clean fclean
