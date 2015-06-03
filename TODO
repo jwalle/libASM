@@ -1,22 +1,22 @@
-	Part I
+Part I
 
-	bzero()
-	strcat()
-	isalpha()
-	isdigit()
-	isalnum()
-	isascii()
-	isprint()
-	toupper()
-	tolower()
-	puts()
+	bzero(ok)
+	strcat(ok)
+	isalpha(ok)
+	isdigit(ok)
+	isalnum(ok)
+	isascii(ok)
+	isprint(ok)
+	toupper(ok)
+	tolower(ok)
+	puts(ok)
 
 	Part II
 
-	strlen()
-	memset()
-	memcpy()
-	strdup()
+	strlen(ok)
+	memset(ok)
+	memcpy(ok)
+	strdup(ok)
 
 Part III
 

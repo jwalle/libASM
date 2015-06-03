@@ -6,7 +6,7 @@
 #    By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/02 19:47:14 by jwalle            #+#    #+#              #
-#    Updated: 2015/06/02 22:50:34 by jwalle           ###   ########.fr        #
+#    Updated: 2015/06/02 23:58:48 by jwalle           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,5 +23,5 @@ _ft_bzero:
 	mov [rdi + rsi], byte 0		; ont met a 0 le bit pointe sur rdi par rsi a 0
 	jmp _ft_bzero				; on rapelle la fonction. ca sert de while
 
-end :
+end:
 	ret

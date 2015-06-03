@@ -8,8 +8,6 @@ hello:
 	.len equ $ - hello.string
 
 section .text
-	global start
-	global _main
 
 start:
 	call _main

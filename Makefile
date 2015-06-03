@@ -6,7 +6,7 @@
 #    By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/02 20:49:05 by jwalle            #+#    #+#              #
-#    Updated: 2015/06/02 22:09:25 by jwalle           ###   ########.fr        #
+#    Updated: 2015/06/03 06:42:04 by jwalle           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,16 @@ SRC = ft_isascii.s \
 	  ft_isalnum.s \
 	  ft_isprint.s \
 	  ft_isdigit.s \
-	  ft_bzero.s
+	  ft_bzero.s \
+	  ft_tolower.s \
+	  ft_toupper.s \
+	  ft_strlen.s \
+	  ft_puts.s \
+	  ft_strcat.s \
+	  ft_memset.s \
+	  ft_memcpy.s \
+	  ft_strdup.s \
+	  ft_cat.s \
 
 CC = ~/.brew/Cellar/nasm/2.11.08/bin/nasm
 

@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/20 20:49:17 by kleiba            #+#    #+#             */
-/*   Updated: 2015/06/02 22:04:03 by jwalle           ###   ########.fr       */
+/*   Updated: 2015/06/03 06:44:13 by jwalle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_isalnum(int i);
 int		ft_isprint(int i);
 void	ft_bzero(void *s, size_t n);
 
-/*
+
 char	*ft_strcat(char *s1, const char *s2);
 int		ft_strlen(const char *s1);
 int		ft_puts(const char *s);
@@ -36,19 +36,20 @@ void	*ft_memset(void *b, int c, size_t len);
 void 	*ft_memcpy(void *dst, const void *src, size_t n);
 char	*ft_strdup(const char *s1);
 void	ft_cat(int fd);
-void	ft_putstr(const char *s);
-int		ft_add(int i, int j);
-int		ft_mult(int i, int j);
-void	ft_putstr_fd(const char *s, int fd);
-void	ft_strclr(char *s);
+//void	ft_putstr(const char *s);
+//int		ft_add(int i, int j);
+//int		ft_mult(int i, int j);
+//void	ft_putstr_fd(const char *s, int fd);
+//void	ft_strclr(char *s);
 
-*/
+
+
 void	test_puts(void)
 {
 	char str[5] = "PUTS";
 
 
-	printf("\033[1;33m%s\033[0m\n", str); /*c'est printf il bufferise*/
+	printf("\033[1;33m%s\033[0m\n", str); //c'est printf il bufferise
 	ft_puts("COUCOU LES GENS");
 	ft_puts("J'aime le saucisson, il est ma raison de vivre. Il faut manger pour vivre mais pas l'inverse.");
 	ft_puts("");
@@ -208,6 +209,7 @@ void	test_strlen(void)
 	printf("\033[1;32m%s passed.\033[0m\n\n", str);
 }
 
+
 void	test_toupper(void)
 {
 	char c = 'a';
@@ -240,10 +242,17 @@ void	test_toupper(void)
 	printf("'A' vaut toujours -> %d\n", f);
 	printf("A n'est pas devenu minuscule -> %c\n\n", f);
 
+	printf("toupper de a -> %d\n", toupper('a'));
+	printf("ft_toupper de a -> %d\n", ft_toupper('a'));
+	printf("toupper de z -> %d\n", toupper('z'));
+	printf("ft_toupper de z -> %d\n", ft_toupper('z'));
+	printf("toupper de A -> %d\n", toupper('A'));
+	printf("ft_toupper de A -> %d\n", ft_toupper('A'));
 	printf("toupper de 2 -> %d\n", toupper(2));
 	printf("ft_toupper de 2 -> %d\n", ft_toupper(2));
 	printf("\033[1;32m%s passed.\033[0m\n\n", str);
 }
+
 
 void	test_tolower(void)
 {
@@ -277,10 +286,20 @@ void	test_tolower(void)
 	printf("'A' vaut toujours -> %d\n", f);
 	printf("A n'est pas devenu minuscule -> %c\n\n", f);
 
+
+	
+	printf("tolower de Z -> %d\n", tolower('Z'));
+	printf("ft_tolower de Z -> %d\n", ft_tolower('Z'));
+	printf("tolower de A -> %d\n", tolower('A'));
+	printf("ft_tolower de A -> %d\n", ft_tolower('A'));
+	printf("tolower de a -> %d\n", tolower('a'));
+	printf("ft_tolower de a -> %d\n", ft_tolower('a'));
 	printf("tolower de 2 -> %d\n", tolower(2));
-	printf("ft_toupper de 2 -> %d\n", ft_tolower(2));
+	printf("ft_tolower de 2 -> %d\n", ft_tolower(2));
 	printf("\033[1;32m%s passed.\033[0m\n\n", str);
 }
+
+
 
 void	test_strcat(void)
 {
@@ -297,6 +316,7 @@ void	test_strcat(void)
 	printf("ft_strcat de 'coucou ' 'les zaza.' -> %s\n", str3);
 	printf("\033[1;32m%s passed.\033[0m\n\n", str);
 }
+
 
 void	test_memset(void)
 {
@@ -364,6 +384,7 @@ void	test_strdup(void)
 	printf("\033[1;32m%s passed.\033[0m\n\n", str);
 }
 
+
 void	test_cat(void)
 {
 	char	str[] = "CAT";
@@ -373,13 +394,14 @@ void	test_cat(void)
 
 	printf("\033[1;33m%s\033[0m\n", str);
 //	fd = open(__FILE__, O_RDONLY);
-	fd = open(dos, O_RDONLY);
+	fd = open("dos", O_RDONLY);
 	ft_cat(fd);
 	printf("\n");
 
 	printf("\033[1;32m%s passed.\033[0m\n\n", str);
 }
 
+/*
 void	test_putstr(void)
 {
 	char	str[] = "PUTSTR";
@@ -396,7 +418,7 @@ void	test_putstr(void)
 
 void	test_add(void)
 {
-/*This function adds i & j*/
+//This function adds i & j
 	char	str[] = "ADD";
 
 	printf("\033[1;33m%s\033[0m\n", str);
@@ -409,7 +431,7 @@ void	test_add(void)
 
 void	test_mult(void)
 {
-/*This function multiplies i & j*/
+//This function multiplies i & j
 	char	str[] = "MULT";
 
 	printf("\033[1;33m%s\033[0m\n", str);
@@ -447,7 +469,7 @@ void	test_strclr(void)
 	printf("%s et %s\n", str1, str2);
 	printf("\033[1;32m%s passed.\033[0m\n\n", str);
 }
-
+*/
 int		main(void)
 {
 	test_isascii();
@@ -458,13 +480,13 @@ int		main(void)
 	test_bzero();
 	//test_toupper();
 	//test_tolower();
-	//test_strlen();
-	//test_strcat();
-	//test_memset();
-	//test_memcpy();
-	//test_puts();
-	//test_strdup();
-//	test_cat();
+	test_strlen();
+	test_strcat();
+	test_memset();
+	test_memcpy();
+	test_puts();
+	test_strdup();
+	test_cat();
 	printf("\n\n\033[1;32m  !!  BONUS  !!  \033[0m\n\n");
 	//test_putstr();
 	//test_add();

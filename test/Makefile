@@ -6,7 +6,7 @@
 #    By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/02 21:45:17 by jwalle            #+#    #+#              #
-#    Updated: 2015/06/02 22:46:37 by jwalle           ###   ########.fr        #
+#    Updated: 2015/06/02 23:51:01 by jwalle           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	make -C ../
 	cp -f ../libfts.a .
-	$(CC) -o $(NAME) main.c $(LINK) $(INC)
+	#$(CC) -o $(NAME) main.c $(LINK) $(INC)
+	gcc -o $(NAME) $(SRC) $(LINK) $(INC)
 
 clean :
 	$(RM) $(OBJ)

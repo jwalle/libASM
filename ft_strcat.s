@@ -1,34 +1,38 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    ft_isalnum.s                                       :+:      :+:    :+:    #
+#    ft_strcat.s                                        :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/06/02 21:12:01 by jwalle            #+#    #+#              #
-#    Updated: 2015/06/03 06:20:58 by jwalle           ###   ########.fr        #
+#    Created: 2015/06/03 04:32:24 by jwalle            #+#    #+#              #
+#    Updated: 2015/06/03 05:16:11 by jwalle           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+section	.text
+	global _ft_strcat
 
-section .text
-	global _ft_isalnum
-	extern _ft_isalpha
-	extern _ft_isdigit
+_ft_strcat:
+	xor r8, r8
+	xor r9, r9
 
-_ft_isalnum:
-	call _ft_isalpha
-	cmp rax, 1
-	je is
-	call _ft_isdigit
-	cmp rax, 1
-	je is
-	jmp isnot
+.loop_1:
+	cmp [rdi + r8], byte 0
+	je .loop_2
+	inc r8
+	jmp .loop_1
 
-is:
-	mov rax, 1
-	ret
+.loop_2:
+	cmp [rsi + r9], byte 0
+	je .end
+	mov cl, [rsi + r9]
+	mov [rdi + r8], cl
+	inc r8
+	inc r9
+	jmp .loop_2
 
-isnot:
-	mov rax, 0
+.end:
+	mov [rdi + r8] , byte 0
+	mov rax, rdi
 	ret
