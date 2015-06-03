@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/20 20:49:17 by kleiba            #+#    #+#             */
-/*   Updated: 2015/06/03 06:44:13 by jwalle           ###   ########.fr       */
+/*   Updated: 2015/06/03 08:13:49 by jwalle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,13 @@ int		ft_strlen(const char *s1);
 int		ft_puts(const char *s);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+
 void	*ft_memset(void *b, int c, size_t len);
 void 	*ft_memcpy(void *dst, const void *src, size_t n);
 char	*ft_strdup(const char *s1);
 void	ft_cat(int fd);
+char	*ft_strnew(int n);
+void	ft_putchar(char c);
 //void	ft_putstr(const char *s);
 //int		ft_add(int i, int j);
 //int		ft_mult(int i, int j);
@@ -43,6 +46,20 @@ void	ft_cat(int fd);
 //void	ft_strclr(char *s);
 
 
+void	test_strnew(void)
+{	
+	printf("\033[1;33m%s\033[0m\n", "STRNEW"); //c'est printf il bufferise
+	printf("str = %s\n", ft_strnew(9));
+	printf("\033[1;33m%s\033[0m\n", "STRNEW"); //c'est printf il bufferise
+}
+
+void	test_putchar(void)
+{
+	printf("\033[1;33m%s\033[0m\n", "PUTCHAR"); //c'est printf il bufferise
+	ft_putchar('g');
+	ft_putchar('g');
+	printf("\033[1;33m%s\033[0m\n", "PUTCHAR"); //c'est printf il bufferise
+}
 
 void	test_puts(void)
 {
@@ -493,5 +510,7 @@ int		main(void)
 	//test_mult();
 	//test_putstr_fd();
 	//test_strclr();
+	test_strnew();
+	test_putchar();
 	return (0);
 }

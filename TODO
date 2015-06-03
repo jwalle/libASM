@@ -20,8 +20,10 @@ Part I
 
 Part III
 
-cat()
+cat(ok)
 
 BONUS
 
-?
+ft_strnew(ok)
+ft_putchar()
+ft_strcmp()
