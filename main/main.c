@@ -1,4 +1,14 @@
-/* --- HEADER --- */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/06/04 17:43:54 by jwalle            #+#    #+#             */
+/*   Updated: 2015/06/04 20:53:06 by jwalle           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 # include "main.h"
 
@@ -8,6 +18,20 @@ int pass = 0;
 void ass_str(char *s1, char *s2)
 {
 	if (!strcmp(s1, s2))
+	{
+		printf(GREEN "OK\n" RESET);
+		pass++;
+	}
+	else
+	{
+		printf(RED "NOPE\n" RESET);
+		fail++;
+	}
+}
+
+void ass_mem(void *s1, void *s2, int n)
+{
+	if (!memcmp(s1, s2, n))
 	{
 		printf(GREEN "OK\n" RESET);
 		pass++;
@@ -33,15 +57,82 @@ void ass_int(int n1, int n2)
 	}
 }
 
+void strnew_test()
+{
+	printf(YELLOW "%s" RESET, "STRNEW\n");
+	char *str1;
+	char *str2;
+
+	str1 = ft_strnew(100);
+	str2 = malloc(101);
+	bzero(str2, 101);
+	ass_mem(str1, str2, 101);
+}
+
+void cat_test()
+{
+	int fd;
+	printf(YELLOW "%s" RESET, "CAT\n");
+
+	fd = open("file_test.f", O_RDONLY);
+	ft_cat(fd);
+}
+
+void strdup_test()
+{
+	printf(YELLOW "%s" RESET, "STRDUP\n");
+	ass_str(ft_strdup("aaaaaa"), "aaaaaa");
+	ass_str(ft_strdup(""), "");
+}
+
+void memcpy_test()
+{
+	char c1[100], c2[100];
+	int n = 100;
+	printf(YELLOW "%s" RESET, "MEMCPY\n");
+
+	memset(c1, 33, 100);
+	memset(c2, 42, 100);
+
+	ft_memcpy(c1, c2, 100);
+	ass_mem(c1, c2, n);
+	ass_mem(ft_memcpy(c2, c1, 100), c2,n);
+	ass_mem(ft_memset(c1, c2, 0), c1, n);
+}
+
+void memset_test()
+{
+	char b1[100], b2[100];
+	int n = 100;
+	printf(YELLOW "%s" RESET, "MEMSET\n");
+
+	ft_memset(b1, 42, 100);
+	memset(b2, 42, 100);
+	ass_mem(b1, b2, n);
+	ass_mem(memset(b1, 99, 0), ft_memset(b2, 99, 0), n);
+	ass_mem(memset(b1, 20, 50), ft_memset(b2, 20, 50), n);
+}
+
+void strlen_test()
+{
+	printf(YELLOW "%s" RESET, "STRLEN\n");
+	char *s1 = "PLOP";
+
+	ass_int(strlen(s1), ft_strlen(s1));
+	ass_int(strlen(""),ft_strlen(""));
+	ass_int(strlen("testtesttesttest"), ft_strlen("testtesttesttest"));
+}
+
 void puts_test()
 {
 	printf(YELLOW "%s" RESET, "PUTS\n");
-	puts("TEST");
-	ft_putstr("TEST\n");
-	ft_putstr("TESTTESTTESTTESTTEST\n");
-	puts("TESTTESTTESTTESTTEST");
-	//puts(NULL);
-	//ft_putstr(NULL);
+
+	printf("puts : "); puts("TEST");
+	printf("ft_puts") ;ft_puts("TEST");
+	printf("puts") ;puts("TESTTESTTESTTESTTEST");
+	printf("ft_puts") ;ft_puts("TESTTESTTESTTESTTEST");
+	printf("puts") ;puts(NULL);
+	printf("ft_puts") ;ft_puts(NULL);
 }
 
 
@@ -252,6 +343,13 @@ int main(void)
 	toupper_test();
 	tolower_test();
 	puts_test();
+	strlen_test();
+	memset_test();
+	memcpy_test();
+	strdup_test();
+	cat_test();
+	printf(YELLOW "======= Bonus tests. =======\n");
+	strnew_test();
 	printf(YELLOW "======= End of tests. =======\n");
 	printf(GREEN "%d tests passed\n" RESET, pass);
 	printf(RED "%d tests failed\n" RESET, fail);

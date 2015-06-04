@@ -6,7 +6,7 @@
 #    By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/02 21:45:17 by jwalle            #+#    #+#              #
-#    Updated: 2015/06/02 23:51:01 by jwalle           ###   ########.fr        #
+#    Updated: 2015/06/04 18:25:13 by jwalle           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ OBJ = main.o
 
 INC = -I ./ -I ./libft
 LINK = -L ./libft -lft
+LINK_OSX = -L ../ -lfts
 
 VERS = -macosx_version_min 10.8 -lSystem
 
@@ -35,7 +36,7 @@ $(NAME) : $(OBJ)
 	#$(CC) -o $(NAME) main.c $(LINK) $(INC)
 	#gcc -o $(NAME) $(SRC) $(LINK)
 	make -C libft
-	$(CC) $(SRC) $(LINK) $(INC) -o $(NAME)
+	$(CC) $(SRC) $(LINK_OSX) $(INC) -o $(NAME)
 
 clean :
 	$(RM) $(OBJ)

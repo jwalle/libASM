@@ -6,7 +6,7 @@
 #    By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/02 20:49:05 by jwalle            #+#    #+#              #
-#    Updated: 2015/06/03 08:11:55 by jwalle           ###   ########.fr        #
+#    Updated: 2015/06/04 20:51:57 by jwalle           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,12 +63,16 @@ fclean : clean
 
 re : fclean all
 
+test : re
+	make -C main re
+	./main/main_test
+
 $(OBJ): | $(OBJ_DIR)
 
 $(OBJ_DIR):
 	mkdir $(OBJ_DIR)
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re test
 
 .SILENT: fclean
 
