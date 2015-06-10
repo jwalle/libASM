@@ -6,7 +6,7 @@
 /*   By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/04 17:43:54 by jwalle            #+#    #+#             */
-/*   Updated: 2015/06/04 20:53:06 by jwalle           ###   ########.fr       */
+/*   Updated: 2015/06/10 17:00:26 by jwalle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,18 @@ void ass_int(int n1, int n2)
 		printf(RED "NOPE\n" RESET);
 		fail++;
 	}
+}
+
+void strclr_test()
+{
+	printf(YELLOW "%s" RESET, "STRCLR\n");
+	char *str1 = strdup("test plop 42\n");
+	char *str2 = strdup("test plop 42\n");
+	int n = strlen(str1);
+
+	bzero(str1, n);
+	ft_strclr(str2);
+	ass_mem(str1, str2, n);
 }
 
 void strnew_test()
@@ -123,16 +135,31 @@ void strlen_test()
 	ass_int(strlen("testtesttesttest"), ft_strlen("testtesttesttest"));
 }
 
+void putstr_test()
+{
+	printf(YELLOW "%s" RESET, "PUTSTR\n");
+
+	printf("printf :\n"); printf("TEST\n");
+	printf("ft_putstr :\n") ; ft_putstr("TEST\n");
+	printf("------------------------------ \n");
+	printf("printf :\n") ;printf("TESTTESTTESTTESTTEST\n");
+	printf("ft_putstr :\n") ; ft_putstr("TESTTESTTESTTESTTEST\n");
+	printf("-------------------------------\n");
+	//printf("puts :\n") ;puts(NULL);
+	//printf("ft_puts :\n") ;ft_puts(NULL);
+}
 void puts_test()
 {
 	printf(YELLOW "%s" RESET, "PUTS\n");
 
-	printf("puts : "); puts("TEST");
-	printf("ft_puts") ;ft_puts("TEST");
-	printf("puts") ;puts("TESTTESTTESTTESTTEST");
-	printf("ft_puts") ;ft_puts("TESTTESTTESTTESTTEST");
-	printf("puts") ;puts(NULL);
-	printf("ft_puts") ;ft_puts(NULL);
+	printf("puts :\n"); puts("TEST");
+	printf("ft_puts :\n") ;ft_puts("TEST");
+	printf("------------------------------ \n");
+	printf("puts :\n") ;puts("TESTTESTTESTTESTTEST");
+	printf("ft_puts :\n") ;ft_puts("TESTTESTTESTTESTTEST");
+	printf("-------------------------------\n");
+	printf("puts :\n") ;puts(NULL);
+	printf("ft_puts :\n") ;ft_puts(NULL);
 }
 
 
@@ -350,6 +377,8 @@ int main(void)
 	cat_test();
 	printf(YELLOW "======= Bonus tests. =======\n");
 	strnew_test();
+	putstr_test();
+	strclr_test();
 	printf(YELLOW "======= End of tests. =======\n");
 	printf(GREEN "%d tests passed\n" RESET, pass);
 	printf(RED "%d tests failed\n" RESET, fail);

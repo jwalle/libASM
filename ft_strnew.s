@@ -6,7 +6,7 @@
 #    By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/03 07:35:12 by jwalle            #+#    #+#              #
-#    Updated: 2015/06/04 21:08:16 by jwalle           ###   ########.fr        #
+#    Updated: 2015/06/10 16:15:07 by jwalle           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,16 +16,14 @@ section .text
 	extern _ft_bzero
 
 _ft_strnew:
-	xor r9, r9
-	mov rdi, r9
-	inc r9
 	mov r9, rdi
-	push rdi
+	inc r9
+	push r9 
 	call _malloc
 	cmp rax, 0
 	je end
 	mov rdi, rax
-	pop rdx
+	pop r9
 	jmp .loop
 
 .loop:

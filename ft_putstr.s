@@ -1,27 +1,35 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    ft_bzero.s                                         :+:      :+:    :+:    #
+#    ft_putstr.s                                        :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/06/02 19:47:14 by jwalle            #+#    #+#              #
-#    Updated: 2015/06/10 17:39:35 by jwalle           ###   ########.fr        #
+#    Created: 2015/06/10 15:39:13 by jwalle            #+#    #+#              #
+#    Updated: 2015/06/10 15:49:40 by jwalle           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+%define MACH_SYSCALL(nb)	0x2000000 | nb
+%define	STDOUT				1
+%define	WRITE				4
 
-; void	*ft_bzero(void *s, size_t n)
 
-section .text
-	global _ft_bzero		; pas oublier le premier '_'
+section	.text
+	global _ft_putstr
+	extern _ft_strlen
 
-_ft_bzero:
-	cmp rsi, 0					; rsi c est le premier arg, on compare a 0;
-	jz end						; si c'est 0, on appelle end qui exit la fonction
-	dec rsi						; on decremente rsi
-	mov [rdi + rsi], byte 0		; ont met a 0 le bit pointe sur rdi par rsi a 0
-	jmp _ft_bzero				; on rapelle la fonction. ca sert de while
+_ft_putstr:
+	cmp rdi, 0
+	je .null
+	mov rcx, rdi					;stock la string dans rcx
+	call _ft_strlen
+	mov rdx, rax					;stock len dans rdx
+	mov rax, MACH_SYSCALL(WRITE)	;
+	mov rdi, STDOUT
+	lea rsi, [rcx]
+	syscall
+	ret
 
-end:
+.null:
 	ret

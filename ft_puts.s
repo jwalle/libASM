@@ -6,7 +6,7 @@
 #    By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/03 00:55:54 by jwalle            #+#    #+#              #
-#    Updated: 2015/06/03 04:32:46 by jwalle           ###   ########.fr        #
+#    Updated: 2015/06/10 18:46:56 by jwalle           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ _ft_puts:
 	mov rdx, rax					;stock len dans rdx
 	mov rax, MACH_SYSCALL(WRITE) 
 	mov rdi, STDOUT
-	lea rsi, [rcx]
+	lea rsi, [rcx]					;lea D, S get a pointer from Source and stores it in Dest
 	syscall
 	jmp .back_n
 
