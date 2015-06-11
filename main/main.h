@@ -38,6 +38,7 @@ char	*ft_strnew(int n);
 void	ft_putchar(char c);
 void	ft_putstr(const char *s);
 void	ft_strclr(char *str);
+int		ft_strcmp(char *s1, char *s2);
 //int		ft_add(int i, int j);
 //int		ft_mult(int i, int j);
 //void	ft_putstr_fd(const char *s, int fd);

@@ -6,7 +6,7 @@
 #    By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/03 00:55:54 by jwalle            #+#    #+#              #
-#    Updated: 2015/06/10 18:46:56 by jwalle           ###   ########.fr        #
+#    Updated: 2015/06/11 19:50:36 by jwalle           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ _ft_puts:
 	mov rax, MACH_SYSCALL(WRITE)
 	lea	rsi, [rel new_line]
 	syscall
-	mov rax, 1
+	mov rax, 10
 	ret
 
 .null:
@@ -46,7 +46,7 @@ _ft_puts:
 	mov rax, MACH_SYSCALL(WRITE)
 	lea	rsi, [rel line.null]	;null_msg
 	syscall
-	mov rax, -1
+	mov rax, 10
 	ret
 
 .new :

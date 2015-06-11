@@ -6,7 +6,7 @@
 #    By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/02 20:49:05 by jwalle            #+#    #+#              #
-#    Updated: 2015/06/10 16:55:32 by jwalle           ###   ########.fr        #
+#    Updated: 2015/06/11 22:14:20 by jwalle           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRC = ft_isascii.s \
 	  ft_putchar.s \
 	  ft_putstr.s \
 	  ft_strclr.s \
+	  ft_strcmp.s \
 
 CC = ~/.brew/Cellar/nasm/2.11.08/bin/nasm
 

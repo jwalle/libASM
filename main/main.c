@@ -6,7 +6,7 @@
 /*   By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/04 17:43:54 by jwalle            #+#    #+#             */
-/*   Updated: 2015/06/10 17:00:26 by jwalle           ###   ########.fr       */
+/*   Updated: 2015/06/11 22:33:47 by jwalle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,20 @@ void ass_int(int n1, int n2)
 		fail++;
 	}
 }
+
+void strcmp_test()
+{
+	printf(YELLOW "%s" RESET, "STRCMP\n");
+	char *a = "a";
+	char *b = "b";
+	char *string = "string";
+	ass_int(strcmp(a,b), ft_strcmp(a,b));
+	printf("a,b = %d\n", ft_strcmp(a,b));
+	ass_int(strcmp(b,a), ft_strcmp(b,a));
+	ass_int(strcmp(string,string), ft_strcmp(string,string));
+}
+
+
 
 void strclr_test()
 {
@@ -379,6 +393,7 @@ int main(void)
 	strnew_test();
 	putstr_test();
 	strclr_test();
+	strcmp_test();
 	printf(YELLOW "======= End of tests. =======\n");
 	printf(GREEN "%d tests passed\n" RESET, pass);
 	printf(RED "%d tests failed\n" RESET, fail);

@@ -6,7 +6,7 @@
 #    By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/03 05:48:58 by jwalle            #+#    #+#              #
-#    Updated: 2015/06/10 16:13:22 by jwalle           ###   ########.fr        #
+#    Updated: 2015/06/11 21:45:25 by jwalle           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,6 @@ _ft_memcpy:
 	mov r9, rdi
 	mov rcx, rdx
 	cld					; clear direction flag so rep inc onward.
-	rep movsb			; repeat until rdx = 0, move data from string to string
+	rep movsb			; repeat until rdx = 0, move data from string to string (rsi to r9)
 	mov rax, r9
 	ret
