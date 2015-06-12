@@ -6,7 +6,7 @@
 #    By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/03 08:08:49 by jwalle            #+#    #+#              #
-#    Updated: 2015/06/03 08:30:04 by jwalle           ###   ########.fr        #
+#    Updated: 2015/06/12 16:09:37 by jwalle           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,12 +22,13 @@ section	.text
 _ft_putchar:
 	cmp rdi, 0
 	je .null
-	mov rcx, rdi
+	push rdi
+	mov rsi, rsp					;rsp -> stack pointer
 	mov rdx, 1
 	mov rax, MACH_SYSCALL(WRITE)
 	mov rdi, STDOUT
-	lea rsi, [rcx]
 	syscall
+	pop rdi
 	ret
 
 .null:

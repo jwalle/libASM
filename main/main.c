@@ -6,7 +6,7 @@
 /*   By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/04 17:43:54 by jwalle            #+#    #+#             */
-/*   Updated: 2015/06/11 22:33:47 by jwalle           ###   ########.fr       */
+/*   Updated: 2015/06/12 16:11:47 by jwalle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,16 @@ void ass_int(int n1, int n2)
 	}
 }
 
+void putchar_test()
+{
+	printf(YELLOW "%s" RESET, "PUTCHAR\n");
+	printf("ft_putchar of 'a', '0', 'x' && '\\n'.\n");
+	ft_putchar('a');
+	ft_putchar('0');
+	ft_putchar('x');
+	ft_putchar('\n');
+}
+
 void strcmp_test()
 {
 	printf(YELLOW "%s" RESET, "STRCMP\n");
@@ -64,7 +74,6 @@ void strcmp_test()
 	char *b = "b";
 	char *string = "string";
 	ass_int(strcmp(a,b), ft_strcmp(a,b));
-	printf("a,b = %d\n", ft_strcmp(a,b));
 	ass_int(strcmp(b,a), ft_strcmp(b,a));
 	ass_int(strcmp(string,string), ft_strcmp(string,string));
 }
@@ -159,8 +168,6 @@ void putstr_test()
 	printf("printf :\n") ;printf("TESTTESTTESTTESTTEST\n");
 	printf("ft_putstr :\n") ; ft_putstr("TESTTESTTESTTESTTEST\n");
 	printf("-------------------------------\n");
-	//printf("puts :\n") ;puts(NULL);
-	//printf("ft_puts :\n") ;ft_puts(NULL);
 }
 void puts_test()
 {
@@ -394,6 +401,7 @@ int main(void)
 	putstr_test();
 	strclr_test();
 	strcmp_test();
+	putchar_test();
 	printf(YELLOW "======= End of tests. =======\n");
 	printf(GREEN "%d tests passed\n" RESET, pass);
 	printf(RED "%d tests failed\n" RESET, fail);
